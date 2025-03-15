@@ -2,6 +2,7 @@ package io.github.dreamhacksproj;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -34,6 +35,18 @@ public class Main extends ApplicationAdapter {
         // batch.draw
 
         batch.end();
+
+        Node player = maze.getPlayer();
+
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            maze.goNorth();
+        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            maze.goSouth();
+        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            maze.goEast();
+        } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            maze.goWest();
+        }
     }
     @Override
     public void dispose() {
