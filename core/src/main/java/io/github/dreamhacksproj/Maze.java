@@ -9,6 +9,7 @@ public class Maze {
     private Random rand = new Random();
     public int[][] maze;
     private int dimension;
+    public int enemyId = 3;
 
     Maze(int dim) {
         maze = new int[dim][dim];
@@ -182,7 +183,7 @@ public class Maze {
         return getRandomLocation(2);
     }
 
-    public boolean goNorth() {
+    public boolean goSouth() {
         Node randomTile = getRandomLocation(2);
         if (randomTile != null && randomTile.y > 0 && maze[randomTile.y - 1][randomTile.x] == 0) {
             maze[randomTile.y - 1][randomTile.x] = 2;
@@ -202,7 +203,7 @@ public class Maze {
         return false;
     }
 
-    public boolean goSouth() {
+    public boolean goNorth() {
         Node randomTile = getRandomLocation(2);
         if (randomTile != null && randomTile.y < dimension - 1 && maze[randomTile.y + 1][randomTile.x] == 0) {
             maze[randomTile.y + 1][randomTile.x] = 2;
@@ -222,7 +223,7 @@ public class Maze {
         return false;
     }
 
-    public void setRandomToThree(int radius) {
+    public void setRandomEnemy(int radius) {
         Node randomFloor = getRandomLocation(0);
         boolean success = false;
         while (!success) {
@@ -236,9 +237,8 @@ public class Maze {
                 }
             }
         }
-        maze[randomFloor.y][randomFloor.x] = 3;
-
-
+        maze[randomFloor.y][randomFloor.x] = enemyId;
+        enemyId++;
     }
 
     public boolean isWithinRadius(int x1, int y1, int x2, int y2, int radius) {
