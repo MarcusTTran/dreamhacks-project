@@ -1,0 +1,161 @@
+{
+  "bodyTypeName": "muscular",
+  "url": "https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_fur_black&head=Human_male_fur_black&sex=muscular&shadow=Shadow_shadow&wound_brain=none_Brain&wound_ribs=none_Ribs&wound_eye_left=none_Left_Eye&wound_mouth=none_Mouth&expression=Angry_fur_black&eye_color=none_Eye_Color&legs=none_Fur_Pants&wheelchair=none_Wheelchair&wings=Bat_Wings_redhead&shoulders=Legion_gold&arms=Armour_brass&bracers=none_Bracers&gloves=none_Gloves&cape=Solid_yellow",
+  "spritesheets": "https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/spritesheets/",
+  "version": 1,
+  "datetime": "3/15/2025, 11:11:56 AM",
+  "credits": [
+    {
+      "fileName": "shadow/adult/shadow.png",
+      "licenses": "CC0",
+      "authors": "drjamgo@hotmail.com",
+      "urls": "https://opengameart.org/content/shadow-for-lpc-sprite",
+      "notes": ""
+    },
+    {
+      "fileName": "body/bodies/muscular/fur_black.png",
+      "licenses": "CC-BY-SA 3.0,GPL 3.0",
+      "authors": "bluecarrot16,JaidynReiman,Evert,TheraHedwig,MuffinElZangano,Durrani,Sander Frenken (castelonia),Benjamin K. Smith (BenCreating),Eliza Wyatt (ElizaWy),dalonedrau,Stephen Challener (Redshrike)",
+      "urls": "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles,https://opengameart.org/content/lpc-barbarian-sprite-base,https://opengameart.org/content/lpc-muscular-swing-animation,https://opengameart.org/content/lpc-muscular-hurt-animation,https://opengameart.org/content/lpc-jump-expanded,https://opengameart.org/content/lpc-revised-character-basics,https://opengameart.org/content/lpc-be-seated,https://opengameart.org/content/lpc-jump-expanded,https://opengameart.org/content/lpc-character-bases,https://opengameart.org/content/lpc-male-jumping-animation-by-durrani",
+      "notes": "see details at https://opengameart.org/content/lpc-character-bases"
+    },
+    {
+      "fileName": "body/wings/bat/adult/fg/redhead.png",
+      "licenses": "OGA-BY 3.0",
+      "authors": "ElizaWy,JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-wings-new-animations",
+      "notes": "Original by ElizaWy, added to most remaining frames by JaidynReiman"
+    },
+    {
+      "fileName": "body/wings/bat/adult/bg/redhead.png",
+      "licenses": "OGA-BY 3.0",
+      "authors": "ElizaWy,JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-wings-new-animations",
+      "notes": "Original by ElizaWy, added to most remaining frames by JaidynReiman"
+    },
+    {
+      "fileName": "head/heads/human/male/fur_black.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 3.0",
+      "authors": "bluecarrot16,Benjamin K. Smith (BenCreating),Stephen Challener (Redshrike)",
+      "urls": "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles,https://opengameart.org/content/lpc-character-bases",
+      "notes": "original head by Redshrike, tweaks by BenCreating, modular version by bluecarrot16"
+    },
+    {
+      "fileName": "head/faces/${head}/anger/fur_black.png",
+      "licenses": "OGA-BY 3.0",
+      "authors": "JaidynReiman,ElizaWy,Stephen Challener (Redshrike)",
+      "urls": "https://github.com/ElizaWy/LPC/tree/main/Characters/Head,https://opengameart.org/content/ulpc-expanded-expressions",
+      "notes": "Original by Redshrike, Expressions by ElizaWy, mapped to all frames by JaidynReiman"
+    },
+    {
+      "fileName": "shoulders/legion/male/gold.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 2.0,GPL 3.0",
+      "authors": "Nila122",
+      "urls": "https://opengameart.org/content/lpc-roman-armor",
+      "notes": ""
+    },
+    {
+      "fileName": "arms/armour/plate/male/brass.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 3.0",
+      "authors": "Michael Whitlock (bigbeargames),Matthew Krohn (makrohn),Johannes Sjölund (wulax)",
+      "urls": "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites,http://opengameart.org/content/lpc-clothing-updates",
+      "notes": "original by wulax, recolors by bigbeargames; adapted to v3 bases and further recolors by bluecarrot16"
+    },
+    {
+      "fileName": "cape/solid/female/yellow.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 3.0",
+      "authors": "bluecarrot16,JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more,https://opengameart.org/content/lpc-roman-armor,http://opengameart.org/content/lpc-clothing-updates",
+      "notes": ""
+    },
+    {
+      "fileName": "cape/solid_behind/yellow.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 3.0",
+      "authors": "Nila122,JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more,https://opengameart.org/content/lpc-roman-armor",
+      "notes": ""
+    }
+  ],
+  "layers": [
+    {
+      "fileName": "shadow/adult/shadow.png",
+      "zPos": 0,
+      "parentName": "shadow",
+      "name": "Shadow",
+      "variant": "shadow",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/wings/bat/adult/bg/redhead.png",
+      "zPos": 5,
+      "parentName": "wings",
+      "name": "Bat_Wings",
+      "variant": "redhead",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "cape/solid_behind/yellow.png",
+      "zPos": 5,
+      "parentName": "cape",
+      "name": "Solid",
+      "variant": "yellow",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/bodies/muscular/fur_black.png",
+      "zPos": 10,
+      "parentName": "body",
+      "name": "Body_color",
+      "variant": "fur_black",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "shoulders/legion/male/gold.png",
+      "zPos": 60,
+      "parentName": "shoulders",
+      "name": "Legion",
+      "variant": "gold",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "arms/armour/plate/male/brass.png",
+      "zPos": 60,
+      "parentName": "arms",
+      "name": "Armour",
+      "variant": "brass",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "cape/solid/female/yellow.png",
+      "zPos": 85,
+      "parentName": "cape",
+      "name": "Solid",
+      "variant": "yellow",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "head/heads/human/male/fur_black.png",
+      "zPos": 100,
+      "parentName": "head",
+      "name": "Human_male",
+      "variant": "fur_black",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "head/faces/male/anger/fur_black.png",
+      "zPos": 101,
+      "parentName": "expression",
+      "name": "Angry",
+      "variant": "fur_black",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "body/wings/bat/adult/fg/redhead.png",
+      "zPos": 105,
+      "parentName": "wings",
+      "name": "Bat_Wings",
+      "variant": "redhead",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    }
+  ]
+}
