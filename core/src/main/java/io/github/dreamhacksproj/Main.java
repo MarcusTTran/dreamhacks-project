@@ -11,16 +11,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
-    private Texture image;
-
-    private TextureRegion mc_north;
-
-    private static int SPRITE_WIDTH = 64;
-    private static int SPRITE_HEIGHT = 64;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
+        AnimationsLoader loader = new AnimationsLoader();
 
     }
 
@@ -28,7 +23,7 @@ public class Main extends ApplicationAdapter {
     public void render() {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
-        batch.draw(mc_north, 140, 210);
+        // batch.draw
 
         batch.end();
     }
@@ -36,6 +31,6 @@ public class Main extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
-        image.dispose();
+//        image.dispose();
     }
 }
