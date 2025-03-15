@@ -20,6 +20,11 @@ public class Main extends ApplicationAdapter {
     private static final int MAP_HEIGHT = 40;
     private SpriteBatch batch;
 
+    private TextureRegion mc_north;
+
+    private static int SPRITE_WIDTH = 64;
+    private static int SPRITE_HEIGHT = 64;
+
     @Override
     public void create() {
         batch = new SpriteBatch();
