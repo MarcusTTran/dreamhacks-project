@@ -177,34 +177,46 @@ public class Maze {
         int randomIndex = rand.nextInt(wallLocations.size());
         return wallLocations.get(randomIndex);
     }
+    public Node getPlayer()
+    {
+        return getRandomLocation(2);
+    }
 
-    public boolean setNorthToTwo(int x, int y) {
-        if (y > 0 && maze[y - 1][x] == 0) {
-            maze[y - 1][x] = 2;
+    public boolean goNorth() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.y > 0 && maze[randomTile.y - 1][randomTile.x] == 0) {
+            maze[randomTile.y - 1][randomTile.x] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
             return true;
         }
         return false;
     }
 
-    public boolean setEastToTwo(int x, int y) {
-        if (x < dimension - 1 && maze[y][x + 1] == 0) {
-            maze[y][x + 1] = 2;
+    public boolean goEast() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.x < dimension - 1 && maze[randomTile.y][randomTile.x + 1] == 0) {
+            maze[randomTile.y][randomTile.x + 1] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
             return true;
         }
         return false;
     }
 
-    public boolean setSouthToTwo(int x, int y) {
-        if (y < dimension - 1 && maze[y + 1][x] == 0) {
-            maze[y + 1][x] = 2;
+    public boolean goSouth() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.y < dimension - 1 && maze[randomTile.y + 1][randomTile.x] == 0) {
+            maze[randomTile.y + 1][randomTile.x] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
             return true;
         }
         return false;
     }
 
-    public boolean setWestToTwo(int x, int y) {
-        if (x > 0 && maze[y][x - 1] == 0) {
-            maze[y][x - 1] = 2;
+    public boolean goWest() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.x > 0 && maze[randomTile.y][randomTile.x - 1] == 0) {
+            maze[randomTile.y][randomTile.x - 1] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
             return true;
         }
         return false;
