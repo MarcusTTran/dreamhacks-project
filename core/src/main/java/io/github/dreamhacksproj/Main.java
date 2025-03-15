@@ -35,8 +35,8 @@ public class Main extends ApplicationAdapter {
         backgroundTexture = new Texture("background.png");
         groundTile = new TextureRegion(backgroundTexture, 168, 168, TILE_WIDTH, TILE_HEIGHT);
         wallTile = new TextureRegion(backgroundTexture, 120, 200, TILE_WIDTH, TILE_HEIGHT);
-        temp = new TextureRegion(backgroundTexture, 40, 200, TILE_WIDTH, TILE_HEIGHT);
-        temp2 = new TextureRegion(backgroundTexture, 20, 160, TILE_WIDTH, TILE_HEIGHT);
+        temp = new TextureRegion(backgroundTexture, 16, 144, TILE_WIDTH, TILE_HEIGHT);
+        temp2 = new TextureRegion(backgroundTexture, 124, 100, TILE_WIDTH, TILE_HEIGHT);
         maze.generateMaze();
         maze.setRandomToTwo();
         maze.setRandomEnemy(3);
