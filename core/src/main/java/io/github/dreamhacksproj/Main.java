@@ -78,24 +78,28 @@ public class Main extends ApplicationAdapter {
             } else {
                 maze.goNorth();
             }
+            maze.makeEnemiesMove();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
                 maze.goSouthTeleport();
             } else {
                 maze.goSouth();
             }
+            maze.makeEnemiesMove();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
                 maze.goEastTeleport();
             } else {
                 maze.goEast();
             }
+            maze.makeEnemiesMove();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
                 maze.goWestTeleport();
             } else {
                 maze.goWest();
             }
+            maze.makeEnemiesMove();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             System.exit(0);
         }
