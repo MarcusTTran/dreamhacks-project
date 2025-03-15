@@ -222,9 +222,12 @@ public class Maze {
         }
         return false;
     }
+
     public boolean goSouthTeleport() {
         Node randomTile = getRandomLocation(2);
-        if (randomTile != null && randomTile.y > 0 && maze[randomTile.y - 2][randomTile.x] == 0) {
+        if (randomTile != null && randomTile.y > 1
+            && maze[randomTile.y - 1][randomTile.x] != 0  // Adjacent tile must NOT be floor
+            && maze[randomTile.y - 2][randomTile.x] == 0) { // 2nd tile must be floor
             maze[randomTile.y - 2][randomTile.x] = 2;
             maze[randomTile.y][randomTile.x] = 0;
             return true;
@@ -234,7 +237,9 @@ public class Maze {
 
     public boolean goEastTeleport() {
         Node randomTile = getRandomLocation(2);
-        if (randomTile != null && randomTile.x < dimension - 2 && maze[randomTile.y][randomTile.x + 2] == 0) {
+        if (randomTile != null && randomTile.x < dimension - 2
+            && maze[randomTile.y][randomTile.x + 1] != 0
+            && maze[randomTile.y][randomTile.x + 2] == 0) {
             maze[randomTile.y][randomTile.x + 2] = 2;
             maze[randomTile.y][randomTile.x] = 0;
             return true;
@@ -244,7 +249,9 @@ public class Maze {
 
     public boolean goNorthTeleport() {
         Node randomTile = getRandomLocation(2);
-        if (randomTile != null && randomTile.y < dimension - 2 && maze[randomTile.y + 2][randomTile.x] == 0) {
+        if (randomTile != null && randomTile.y < dimension - 2
+            && maze[randomTile.y + 1][randomTile.x] != 0
+            && maze[randomTile.y + 2][randomTile.x] == 0) {
             maze[randomTile.y + 2][randomTile.x] = 2;
             maze[randomTile.y][randomTile.x] = 0;
             return true;
@@ -254,7 +261,9 @@ public class Maze {
 
     public boolean goWestTeleport() {
         Node randomTile = getRandomLocation(2);
-        if (randomTile != null && randomTile.x > 0 && maze[randomTile.y][randomTile.x - 2] == 0) {
+        if (randomTile != null && randomTile.x > 1
+            && maze[randomTile.y][randomTile.x - 1] != 0
+            && maze[randomTile.y][randomTile.x - 2] == 0) {
             maze[randomTile.y][randomTile.x - 2] = 2;
             maze[randomTile.y][randomTile.x] = 0;
             return true;
@@ -302,6 +311,60 @@ public class Maze {
         return false;
     }
 
+    public void makeEnemiesMove() {
+        int[] enemyIds = {3, 4, 5}; // Enemy IDs
+        Random rand = new Random();
+
+        for (int id : enemyIds) {
+            int direction = rand.nextInt(4); // 0 = North, 1 = South, 2 = East, 3 = West
+
+            switch (direction) {
+                case 0:
+                    goNorthEnemy(id);
+                    break;
+                case 1:
+                    goSouthEnemy(id);
+                    break;
+                case 2:
+                    goEastEnemy(id);
+                    break;
+                case 3:
+                    goWestEnemy(id);
+                    break;
+            }
+        }
+    }
+    public boolean checkIfAdjacent(Node n1, Node n2)
+    {
+        if (n1.x == n2.x && (n1.y == n2.y + 1 || n1.y == n2.y - 1))
+        {
+            return true;
+        }
+        if (n1.y == n2.y && (n1.x == n2.x + 1 || n1.x == n2.x - 1))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isPlayerAdjacentToEnemy()
+    {
+        Node player = getRandomLocation(2);
+        int[] enemyIds = {3, 4, 5};
+        for (int id : enemyIds) {
+            Node enemy = getRandomLocation(id);
+            if (checkIfAdjacent(player, enemy))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void killPlayer()
+    {
+        Node player = getRandomLocation(2);
+        maze[player.y][player.x] = 0;
+    }
     public void setRandomEnemy(int radius) {
         Node randomFloor = getRandomLocation(0);
         boolean success = false;
