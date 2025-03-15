@@ -35,8 +35,8 @@ public class Main extends ApplicationAdapter {
         backgroundTexture = new Texture("background.png");
         groundTile = new TextureRegion(backgroundTexture, 168, 168, TILE_WIDTH, TILE_HEIGHT);
         wallTile = new TextureRegion(backgroundTexture, 120, 200, TILE_WIDTH, TILE_HEIGHT);
-        temp = new TextureRegion(backgroundTexture, 40, 200, TILE_WIDTH, TILE_HEIGHT);
-        temp2 = new TextureRegion(backgroundTexture, 20, 160, TILE_WIDTH, TILE_HEIGHT);
+        temp = new TextureRegion(backgroundTexture, 16, 144, TILE_WIDTH, TILE_HEIGHT);
+        temp2 = new TextureRegion(backgroundTexture, 124, 100, TILE_WIDTH, TILE_HEIGHT);
         maze.generateMaze();
         maze.setRandomToTwo();
         maze.setRandomEnemy(3);
@@ -78,28 +78,44 @@ public class Main extends ApplicationAdapter {
             } else {
                 maze.goNorth();
             }
-            maze.makeEnemiesMove();
+            if (maze.isPlayerAdjacentToEnemy())
+            {
+                maze.killPlayer();
+            }
+            maze.makeEnemiesSmart();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
                 maze.goSouthTeleport();
             } else {
                 maze.goSouth();
             }
-            maze.makeEnemiesMove();
+            if (maze.isPlayerAdjacentToEnemy())
+            {
+                maze.killPlayer();
+            }
+            maze.makeEnemiesSmart();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
                 maze.goEastTeleport();
             } else {
                 maze.goEast();
             }
-            maze.makeEnemiesMove();
+            if (maze.isPlayerAdjacentToEnemy())
+            {
+                maze.killPlayer();
+            }
+            maze.makeEnemiesSmart();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
             if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
                 maze.goWestTeleport();
             } else {
                 maze.goWest();
             }
-            maze.makeEnemiesMove();
+            if (maze.isPlayerAdjacentToEnemy())
+            {
+                maze.killPlayer();
+            }
+            maze.makeEnemiesSmart();
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             System.exit(0);
         }

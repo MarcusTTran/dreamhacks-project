@@ -1,6 +1,6 @@
 package io.github.dreamhacksproj;
 
-public class Node {
+public class Node{
     public final int x;
     public final int y;
 
