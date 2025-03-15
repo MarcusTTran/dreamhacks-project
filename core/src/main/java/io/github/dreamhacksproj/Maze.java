@@ -1,8 +1,5 @@
 package io.github.dreamhacksproj;
-import java.util.ArrayList;
-import java.util.Stack;
-import java.util.Random;
-import java.util.Arrays;
+import java.util.*;
 
 public class Maze {
     private Stack<Node> stack = new Stack<>();
@@ -334,6 +331,46 @@ public class Maze {
             }
         }
     }
+
+    public void makeEnemiesSmart() {
+        int[] enemyIds = {3, 4, 5};
+        Node player = getPlayer();
+
+        for (int id : enemyIds) {
+            Node enemy = getRandomLocation(id);
+            if (enemy != null) {
+                ArrayList<Node> potentialMoves = new ArrayList<>();
+                int bestDistance = Integer.MAX_VALUE;
+                Node bestMove = null;
+
+                for (int dy = -1; dy <= 1; dy++) {
+                    for (int dx = -1; dx <= 1; dx++) {
+                        if (Math.abs(dx) != Math.abs(dy)) {
+                            int newY = enemy.y + dy;
+                            int newX = enemy.x + dx;
+
+                            if (pointOnGrid(newX, newY) && maze[newY][newX] != 1) {
+                                potentialMoves.add(new Node(newX, newY));
+                                int distance = Math.abs(newX - player.x) + Math.abs(newY - player.y);
+
+                                if (distance < bestDistance) {
+                                    bestDistance = distance;
+                                    bestMove = new Node(newX, newY);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (bestMove != null) {
+                    maze[enemy.y][enemy.x] = 0;
+                    maze[bestMove.y][bestMove.x] = id;
+                }
+            }
+        }
+    }
+
+
     public boolean checkIfAdjacent(Node n1, Node n2)
     {
         if (n1.x == n2.x && (n1.y == n2.y + 1 || n1.y == n2.y - 1))
