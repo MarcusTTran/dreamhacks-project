@@ -222,6 +222,85 @@ public class Maze {
         }
         return false;
     }
+    public boolean goSouthTeleport() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.y > 0 && maze[randomTile.y - 2][randomTile.x] == 0) {
+            maze[randomTile.y - 2][randomTile.x] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goEastTeleport() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.x < dimension - 2 && maze[randomTile.y][randomTile.x + 2] == 0) {
+            maze[randomTile.y][randomTile.x + 2] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goNorthTeleport() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.y < dimension - 2 && maze[randomTile.y + 2][randomTile.x] == 0) {
+            maze[randomTile.y + 2][randomTile.x] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goWestTeleport() {
+        Node randomTile = getRandomLocation(2);
+        if (randomTile != null && randomTile.x > 0 && maze[randomTile.y][randomTile.x - 2] == 0) {
+            maze[randomTile.y][randomTile.x - 2] = 2;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goSouthEnemy(int id) {
+        Node randomTile = getRandomLocation(id);
+        if (randomTile != null && randomTile.y > 0 && maze[randomTile.y - 1][randomTile.x] == 0) {
+            maze[randomTile.y - 1][randomTile.x] = id;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goEastEnemy(int id) {
+        Node randomTile = getRandomLocation(id);
+        if (randomTile != null && randomTile.x < dimension - 1 && maze[randomTile.y][randomTile.x + 1] == 0) {
+            maze[randomTile.y][randomTile.x + 1] = id;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goNorthEnemy(int id) {
+        Node randomTile = getRandomLocation(id);
+        if (randomTile != null && randomTile.y < dimension - 1 && maze[randomTile.y + 1][randomTile.x] == 0) {
+            maze[randomTile.y + 1][randomTile.x] = id;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean goWestEnemy(int id) {
+        Node randomTile = getRandomLocation(id);
+        if (randomTile != null && randomTile.x > 0 && maze[randomTile.y][randomTile.x - 1] == 0) {
+            maze[randomTile.y][randomTile.x - 1] = id;
+            maze[randomTile.y][randomTile.x] = 0;
+            return true;
+        }
+        return false;
+    }
 
     public void setRandomEnemy(int radius) {
         Node randomFloor = getRandomLocation(0);
