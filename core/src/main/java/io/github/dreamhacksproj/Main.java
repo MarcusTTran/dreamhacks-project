@@ -38,9 +38,9 @@ public class Main extends ApplicationAdapter {
         temp2 = new TextureRegion(backgroundTexture, 20, 160, TILE_WIDTH, TILE_HEIGHT);
         maze.generateMaze();
         maze.setRandomToTwo();
-        maze.setRandomToThree(3);
-        maze.setRandomToThree(3);
-        maze.setRandomToThree(3);
+        maze.setRandomEnemy(3);
+        maze.setRandomEnemy(3);
+        maze.setRandomEnemy(3);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, MAP_WIDTH * TILE_WIDTH, MAP_HEIGHT * TILE_HEIGHT);
     }
@@ -58,7 +58,11 @@ public class Main extends ApplicationAdapter {
                     batch.draw(temp, x * TILE_WIDTH, y * TILE_HEIGHT);
                 } else if (maze.maze[y][x] == 3) {
                     batch.draw(temp2, x * TILE_WIDTH, y * TILE_HEIGHT);
-                } else {
+                } else if (maze.maze[y][x] == 4) {
+                    batch.draw(temp2, x * TILE_WIDTH, y * TILE_HEIGHT);
+                }else if (maze.maze[y][x] == 5) {
+                    batch.draw(temp2, x * TILE_WIDTH, y * TILE_HEIGHT);
+                }else {
                     batch.draw(groundTile, x * TILE_WIDTH, y * TILE_HEIGHT);
                 }
             }
