@@ -73,13 +73,31 @@ public class Main extends ApplicationAdapter {
         Node player = maze.getPlayer();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            maze.goNorth();
+            if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
+                maze.goNorthTeleport();
+            } else {
+                maze.goNorth();
+            }
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
-            maze.goSouth();
+            if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
+                maze.goSouthTeleport();
+            } else {
+                maze.goSouth();
+            }
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-            maze.goEast();
+            if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
+                maze.goEastTeleport();
+            } else {
+                maze.goEast();
+            }
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-            maze.goWest();
+            if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
+                maze.goWestTeleport();
+            } else {
+                maze.goWest();
+            }
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            System.exit(0);
         }
     }
     @Override
