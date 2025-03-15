@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.Input.Keys;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends ApplicationAdapter {
@@ -24,11 +25,18 @@ public class Main extends ApplicationAdapter {
         batch.begin();
         batch.draw(image, 140, 210);
         batch.end();
+        input();
     }
 
     @Override
     public void dispose() {
         batch.dispose();
         image.dispose();
+    }
+
+    private void input() {
+        if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
+            System.exit(0);
+        }
     }
 }
