@@ -16,7 +16,7 @@ public class Maze {
     }
 
     public void generateMaze() {
-        stack.push(new Node(0,0));
+        stack.push(new Node(0, 0));
 
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
@@ -57,8 +57,8 @@ public class Maze {
 
     private boolean validNextNode(Node node) {
         int numNeighboringOnes = 0;
-        for (int y = node.y-1; y < node.y+2; y++) {
-            for (int x = node.x-1; x < node.x+2; x++) {
+        for (int y = node.y - 1; y < node.y + 2; y++) {
+            for (int x = node.x - 1; x < node.x + 2; x++) {
                 if (pointOnGrid(x, y) && pointNotNode(node, x, y) && maze[y][x] == 1) {
                     numNeighboringOnes++;
                 }
@@ -77,8 +77,8 @@ public class Maze {
 
     private ArrayList<Node> findNeighbors(Node node) {
         ArrayList<Node> neighbors = new ArrayList<>();
-        for (int y = node.y-1; y < node.y+2; y++) {
-            for (int x = node.x-1; x < node.x+2; x++) {
+        for (int y = node.y - 1; y < node.y + 2; y++) {
+            for (int x = node.x - 1; x < node.x + 2; x++) {
                 if (pointOnGrid(x, y) && pointNotCorner(node, x, y)
                     && pointNotNode(node, x, y)) {
                     neighbors.add(new Node(x, y));
@@ -99,6 +99,7 @@ public class Maze {
     private Boolean pointNotNode(Node node, int x, int y) {
         return !(x == node.x && y == node.y);
     }
+
     private void ensureConnectivity() {
         boolean[][] visited = new boolean[dimension][dimension];
         int wallCount = 0;
@@ -150,4 +151,87 @@ public class Maze {
         dfs(y, x + 1, visited);
         dfs(y, x - 1, visited);
     }
+
+    public void setRandomToTwo() {
+        Node randomFloor = getRandomLocation(0);
+        if (randomFloor != null) {
+            maze[randomFloor.y][randomFloor.x] = 2;
+        }
+    }
+
+    public Node getRandomLocation(int val) {
+        ArrayList<Node> wallLocations = new ArrayList<>();
+
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                if (maze[i][j] == val) {
+                    wallLocations.add(new Node(j, i));
+                }
+            }
+        }
+
+        if (wallLocations.isEmpty()) {
+            return null;
+        }
+
+        int randomIndex = rand.nextInt(wallLocations.size());
+        return wallLocations.get(randomIndex);
+    }
+
+    public boolean setNorthToTwo(int x, int y) {
+        if (y > 0 && maze[y - 1][x] == 0) {
+            maze[y - 1][x] = 2;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setEastToTwo(int x, int y) {
+        if (x < dimension - 1 && maze[y][x + 1] == 0) {
+            maze[y][x + 1] = 2;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setSouthToTwo(int x, int y) {
+        if (y < dimension - 1 && maze[y + 1][x] == 0) {
+            maze[y + 1][x] = 2;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setWestToTwo(int x, int y) {
+        if (x > 0 && maze[y][x - 1] == 0) {
+            maze[y][x - 1] = 2;
+            return true;
+        }
+        return false;
+    }
+
+    public void setRandomToThree(int radius) {
+        Node randomFloor = getRandomLocation(0);
+        boolean success = false;
+        while (!success) {
+            Node two = getRandomLocation(2);
+            if (two != null) {
+                if (isWithinRadius(randomFloor.x, randomFloor.y, two.x, two.y, radius))
+                {
+                    randomFloor = getRandomLocation(0);
+                } else {
+                    success = true;
+                }
+            }
+        }
+        maze[randomFloor.y][randomFloor.x] = 3;
+
+
+    }
+
+    public boolean isWithinRadius(int x1, int y1, int x2, int y2, int radius) {
+        int manhattanDistance = Math.abs(x1 - x2) + Math.abs(y1 - y2);
+        return manhattanDistance <= radius;
+    }
 }
+
