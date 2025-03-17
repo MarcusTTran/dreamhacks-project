@@ -1,4 +1,17 @@
-# DreamHacksProj
+# Cognitive Collaspe - DreamHacks Hackathon 2025 Project
+
+A rogue-like maze fighting game where you try to assassinate all monsters and escape from the maze. In this dreamscape, you can teleport across walls *but* there are dangers to
+overusing this newfound ability. Slice your way through this hellish maze and escape, if you can.
+
+FEATURES TODO:
+- Health bar implementation for all characters
+- Rigging the sprites and animations we previously created
+- Creating a cooldown mechanic for the teleportation ability
+- Adding new types of attacks for player character
+- Creating boss rooms
+- Implementing the sounds we created and adding background music
+- Add more obstacles and textures
+
 
 A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
 
